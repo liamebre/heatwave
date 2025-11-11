@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://eaw0oreum2u6"]
+
+[ext_resource type="Script" uid="uid://b0ffptyb1mcxa" path="res://start.gd" id="1_ots34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1svla"]
+
+[sub_resource type="Theme" id="Theme_ots34"]
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_1svla")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qn1rc"]
+
+[sub_resource type="Theme" id="Theme_1n0d2"]
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_qn1rc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5hus"]
+
+[sub_resource type="Theme" id="Theme_oiuna"]
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_y5hus")
+
+[node name="start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ots34")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.78431374, 0.67058825, 0.41568628, 1)
+
+[node name="title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.62700003
+offset_left = -2.0
+offset_bottom = -0.2960205
+
+[node name="HSeparator" type="HSeparator" parent="title"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = SubResource("Theme_ots34")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="title"]
+layout_mode = 2
+text = "HEATWAVE
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="title"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme = SubResource("Theme_1n0d2")
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.637
+anchor_right = 0.674
+anchor_bottom = 0.91800004
+offset_left = -0.22399902
+offset_top = 0.22399902
+offset_right = 0.55200195
+offset_bottom = 0.13598633
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="start" type="Button" parent="buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "START
+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="HSeparator" type="HSeparator" parent="buttons"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme = SubResource("Theme_oiuna")
+
+[node name="menu" type="Button" parent="buttons"]
+layout_mode = 2
+text = "MENU"
+
+[node name="HSeparator2" type="HSeparator" parent="buttons"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme = SubResource("Theme_oiuna")
+
+[node name="quit" type="Button" parent="buttons"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="button_down" from="buttons/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="buttons/menu" to="." method="_on_menu_button_down"]
+[connection signal="button_down" from="buttons/quit" to="." method="_on_quit_button_down"]

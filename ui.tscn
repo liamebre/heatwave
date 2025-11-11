@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://ik7ons764cad"]
+
+[sub_resource type="Theme" id="Theme_xb563"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb563"]
+bg_color = Color(0.8392157, 0.67058825, 0.41568628, 0.8156863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyqef"]
+bg_color = Color(0.19607843, 0.7019608, 0.8509804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_m6e0p"]
+ProgressBar/constants/outline_size = 6
+ProgressBar/styles/background = SubResource("StyleBoxFlat_xb563")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_fyqef")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="daytimer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_right = 0.984
+anchor_bottom = 0.079
+offset_left = -0.12800026
+offset_right = -0.56799316
+offset_bottom = -0.19200134
+theme = SubResource("Theme_xb563")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="daytimer"]
+layout_mode = 2
+text = "TIME"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="daytimer"]
+layout_mode = 2
+theme = SubResource("Theme_m6e0p")
+max_value = 12.0
+value = 4.0
+rounded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 213.0
+offset_right = 85.0
+offset_bottom = 648.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "TEMP
+"
+fit_content = true
+horizontal_alignment = 1
