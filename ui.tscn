@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ik7ons764cad"]
+[gd_scene load_steps=10 format=3 uid="uid://ik7ons764cad"]
 
 [sub_resource type="Theme" id="Theme_xb563"]
 
@@ -27,6 +27,37 @@ ProgressBar/constants/outline_size = 6
 ProgressBar/styles/background = SubResource("StyleBoxFlat_xb563")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_fyqef")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xb563"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6e0p"]
+bg_color = Color(0.7176471, 0.34117648, 0.3647059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_27fn8"]
+VSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_xb563")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_m6e0p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
+bg_color = Color(1, 0.3239456, 0.40659487, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_nltto"]
+ProgressBar/constants/outline_size = 3
+ProgressBar/font_sizes/font_size = 13
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_27fn8")
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -38,11 +69,10 @@ grow_vertical = 2
 [node name="daytimer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.014
-anchor_right = 0.984
+anchor_right = 1.0
 anchor_bottom = 0.079
-offset_left = -0.12800026
-offset_right = -0.56799316
+offset_left = 16.0
+offset_right = -19.0
 offset_bottom = -0.19200134
 theme = SubResource("Theme_xb563")
 
@@ -59,13 +89,16 @@ max_value = 12.0
 value = 4.0
 rounded = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 213.0
-offset_right = 85.0
-offset_bottom = 648.0
+[node name="thermometer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -436.0
+offset_right = 55.0
+offset_bottom = -1.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="thermometer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -73,3 +106,39 @@ text = "TEMP
 "
 fit_content = true
 horizontal_alignment = 1
+
+[node name="VSlider" type="VSlider" parent="thermometer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource("Theme_27fn8")
+min_value = -50.0
+max_value = 50.0
+value = 20.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+editable = false
+ticks_on_borders = true
+ticks_position = 1
+
+[node name="health" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35200003
+anchor_bottom = 0.14400001
+offset_left = 15.0
+offset_top = 66.5
+offset_right = -0.5040283
+offset_bottom = 0.18799591
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="health"]
+layout_mode = 2
+theme = SubResource("Theme_nltto")
+step = 1.0
+value = 100.0
+exp_edit = true
+rounded = true
