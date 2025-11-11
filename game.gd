@@ -8,5 +8,5 @@ func _ready() -> void:
 
 func _on_start_start() -> void:
 	start_screen.hide()
-	
+	world.show()
 	

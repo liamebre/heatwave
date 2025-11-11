@@ -11,10 +11,10 @@ start_screen = NodePath("start")
 world = NodePath("world")
 
 [node name="world" parent="." instance=ExtResource("2_fc0e3")]
+visible = false
 
 [node name="UI" parent="." instance=ExtResource("2_feb5d")]
 
 [node name="start" parent="." instance=ExtResource("2_e2o6t")]
-visible = false
 
 [connection signal="start" from="start" to="." method="_on_start_start"]
