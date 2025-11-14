@@ -452,8 +452,9 @@ texture = ExtResource("1_f3sb7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_tlwt5")
+player = NodePath("player")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -467,4 +468,10 @@ tile_map_data = PackedByteArray("AAAAAP7/AAABAAgAAAAAAP3/AAABAAcAAAAAAPz/AAABAAQ
 tile_set = SubResource("TileSet_aqk2v")
 
 [node name="player" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(193, 103)
+position = Vector2(222, 130)
+
+[node name="daytimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="dead" from="player" to="." method="_on_player_dead"]
+[connection signal="timeout" from="daytimer" to="." method="_on_daytimer_timeout"]

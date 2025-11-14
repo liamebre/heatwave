@@ -26,3 +26,6 @@ position_smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_i3pqv")]
+
+[node name="tempTimer" type="Timer" parent="."]
+wait_time = 0.5
