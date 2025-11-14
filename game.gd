@@ -6,7 +6,7 @@ var world
 
 
 func _ready() -> void:
-	world = world_scene.instantiate()
+	pass
 
 func _on_start_start() -> void:
 	start_screen.hide()
