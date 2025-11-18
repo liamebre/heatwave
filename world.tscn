@@ -473,5 +473,4 @@ position = Vector2(222, 130)
 [node name="daytimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="dead" from="player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="daytimer" to="." method="_on_daytimer_timeout"]
