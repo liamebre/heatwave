@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://ik7ons764cad"]
+[gd_scene load_steps=11 format=3 uid="uid://ik7ons764cad"]
+
+[ext_resource type="Script" uid="uid://cirkctttagfoy" path="res://ui.gd" id="1_fyqef"]
 
 [sub_resource type="Theme" id="Theme_xb563"]
 
@@ -65,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fyqef")
 
 [node name="daytimer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -118,6 +121,7 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 editable = false
+tick_count = 50
 ticks_on_borders = true
 ticks_position = 1
 

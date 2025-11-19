@@ -3,11 +3,13 @@ extends CharacterBody2D
 var screen_size
 var sunproc = 1
 var tempbar
+var healthbar
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	tempbar = $CanvasLayer/UI/thermometer/VSlider
 	tempbar.value = 20
+	healthbar = $CanvasLayer/UI/health/ProgressBar
 
 func _process(_delta: float) -> void:
 	get_input()
@@ -21,3 +23,11 @@ func get_input():
 
 func raise_temp(x):
 	tempbar.value += x/sunproc
+	if tempbar.value >= 30:
+		takedamage(1)
+	
+func takedamage(x):
+	if healthbar.value-x <= 0:
+		get_tree().quit()
+	else:
+		healthbar.value -= x
