@@ -138,6 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="health"]
+texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_nltto")
 step = 1.0
