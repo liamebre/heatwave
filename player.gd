@@ -26,6 +26,11 @@ func raise_temp(x):
 	tempbar.value += x/sunproc
 	if tempbar.value >= 30:
 		takedamage(tempdamage)
+		
+func lower_temp(x):
+	tempbar.value -= x
+	if tempbar.value <= -10:
+		takedamage(tempdamage)
 	
 func takedamage(x):
 	if healthbar.value-x <= 0:

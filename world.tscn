@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://n5i24mok8l0g"]
+[gd_scene load_steps=9 format=4 uid="uid://n5i24mok8l0g"]
 
 [ext_resource type="Texture2D" uid="uid://b6f85tlce0l40" path="res://DesertTileset16x16/Tileset16x16/DesertTilemap16x16.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cs4ecbw3xrls7" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bcs2rbpywd38q" path="res://player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://c6ra2ajpy63em" path="res://item.tscn" id="4_aqk2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
 texture = ExtResource("1_f3sb7")
@@ -479,6 +480,9 @@ polygon = PackedVector2Array(1.3160486, 80.29426, 34.723457, 64.37081, 79.26666,
 [node name="daytimer" type="Timer" parent="."]
 autostart = true
 
+[node name="item" parent="." instance=ExtResource("4_aqk2v")]
+
 [connection signal="body_shape_entered" from="water" to="." method="_on_water_body_shape_entered"]
 [connection signal="body_shape_exited" from="water" to="." method="_on_water_body_shape_exited"]
 [connection signal="timeout" from="daytimer" to="." method="_on_daytimer_timeout"]
+[connection signal="pickup" from="item" to="." method="_on_item_pickup"]

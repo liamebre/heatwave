@@ -26,3 +26,5 @@ func _on_daytimer_timeout() -> void:
 	if isday and int(daybar.value)%4 == 3:
 		player.raise_temp(temp)
 	
+func _on_item_pickup() -> void:
+	player.lower_temp(5)
