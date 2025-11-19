@@ -5,11 +5,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
 
 [node name="item" type="Node2D"]
+self_modulate = Color(0.860016, 0.5770983, 0.63033515, 1)
 script = ExtResource("1_tnite")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color(0.65882355, 0.6627451, 0.8784314, 1)
+self_modulate = Color(10.942179, 14.613182, 16.761183, 1)
 shape = SubResource("CircleShape2D_ttk8k")
+debug_color = Color(0.6623111, 0.4474886, 0.6703691, 0.41960785)
 
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

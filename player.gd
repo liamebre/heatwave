@@ -4,7 +4,7 @@ var screen_size
 var sunproc = 1
 var tempbar
 var healthbar
-var tempdamage = 2 
+var tempdamage = 5
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -25,7 +25,7 @@ func get_input():
 func raise_temp(x):
 	tempbar.value += x/sunproc
 	if tempbar.value >= 30:
-		takedamage(tempdamage)
+		takedamage(tempdamage * (((tempbar.value - 30)/10)+0.5))
 		
 func lower_temp(x):
 	tempbar.value -= x
