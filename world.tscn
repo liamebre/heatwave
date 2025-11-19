@@ -475,7 +475,6 @@ position = Vector2(331, 187)
 position = Vector2(-0.29999924, -0.6802902)
 scale = Vector2(0.98780495, 1.0048077)
 polygon = PackedVector2Array(1.3160486, 80.29426, 34.723457, 64.37081, 79.26666, 63.3756, 79.26666, 118.112434, 36.748146, 119.10765, 1.3160486, 102.188995)
-one_way_collision = true
 
 [node name="daytimer" type="Timer" parent="."]
 autostart = true
