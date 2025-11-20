@@ -3,8 +3,8 @@ extends RigidBody2D
 func _ready() -> void:
 	pass
 
-func _setPos(x):
+func setpos(x):
 	position = x
 
-func _process(_delta: float) -> void:	
+func _process(_delta: float) -> void:
 	pass

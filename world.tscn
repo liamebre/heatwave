@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://n5i24mok8l0g"]
+[gd_scene load_steps=11 format=4 uid="uid://n5i24mok8l0g"]
 
 [ext_resource type="Texture2D" uid="uid://b6f85tlce0l40" path="res://DesertTileset16x16/Tileset16x16/DesertTilemap16x16.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cs4ecbw3xrls7" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bcs2rbpywd38q" path="res://player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://c6ra2ajpy63em" path="res://item.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://peiudg0xj8qm" path="res://mummy.tscn" id="5_036b0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
 texture = ExtResource("1_f3sb7")
@@ -459,6 +460,7 @@ sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 script = ExtResource("1_tlwt5")
 player = NodePath("player")
 water = ExtResource("4_aqk2v")
+mummy = ExtResource("5_036b0")
 
 [node name="base" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -486,6 +488,9 @@ autostart = true
 [node name="item" parent="." instance=ExtResource("4_aqk2v")]
 material = SubResource("CanvasItemMaterial_aqk2v")
 position = Vector2(-331, -122)
+
+[node name="mummy" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(-311, -121)
 
 [connection signal="body_shape_entered" from="water" to="." method="_on_water_body_shape_entered"]
 [connection signal="body_shape_exited" from="water" to="." method="_on_water_body_shape_exited"]

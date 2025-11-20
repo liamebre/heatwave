@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://peiudg0xj8qm"]
+[gd_scene load_steps=4 format=3 uid="uid://peiudg0xj8qm"]
 
 [ext_resource type="Script" uid="uid://57iarik13tyx" path="res://mummy.gd" id="1_ubudb"]
+[ext_resource type="Texture2D" uid="uid://beqexb5r601r5" path="res://icon.svg" id="2_366lj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycj88"]
 
 [node name="mummy" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_ubudb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ycj88")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.13671875, 0.11132813)
+texture = ExtResource("2_366lj")

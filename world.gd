@@ -1,6 +1,7 @@
 extends Node
 @export var player : Node
 @export var water : PackedScene
+@export var mummy : PackedScene
 var isday = true
 var daybar
 var temp = 1 
@@ -10,6 +11,9 @@ func _ready() -> void:
 	var drop = water.instantiate()
 	drop.setpos(Vector2(100,100))
 	add_child(drop)
+	var badguy = mummy.instantiate()
+	badguy.setpos(Vector2(200,200))
+	add_child(badguy)
 
 func _process(_delta: float) -> void:
 	if daybar.value == daybar.max_value:

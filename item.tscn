@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
 radius = 8.0
 
-[node name="item" type="Node2D"]
+[node name="item" type="Node2D" groups=["drop"]]
 top_level = true
 texture_filter = 2
 script = ExtResource("1_tnite")
