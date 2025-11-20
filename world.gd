@@ -1,11 +1,15 @@
 extends Node
 @export var player : Node
+@export var water : PackedScene
 var isday = true
 var daybar
 var temp = 1 
 
 func _ready() -> void:
 	daybar = get_node("player/CanvasLayer/UI/daytimer/ProgressBar")
+	var drop = water.instantiate()
+	drop.setpos(Vector2(100,100))
+	add_child(drop)
 
 func _process(_delta: float) -> void:
 	if daybar.value == daybar.max_value:
@@ -26,5 +30,9 @@ func _on_daytimer_timeout() -> void:
 	if isday and int(daybar.value)%4 == 3:
 		player.raise_temp(temp)
 	
-func _on_item_pickup() -> void:
-	player.lower_temp(5)
+	if isday and int(daybar.value)%15 == 14:
+		var drop = water.instantiate()
+		var pos = Vector2(randf_range(0,1000),randf_range(0,600))
+		drop.setpos(pos)
+		add_child(drop)
+	

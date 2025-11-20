@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://n5i24mok8l0g"]
+[gd_scene load_steps=10 format=4 uid="uid://n5i24mok8l0g"]
 
 [ext_resource type="Texture2D" uid="uid://b6f85tlce0l40" path="res://DesertTileset16x16/Tileset16x16/DesertTilemap16x16.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cs4ecbw3xrls7" path="res://world.gd" id="1_tlwt5"]
@@ -453,9 +453,12 @@ texture = ExtResource("1_f3sb7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqk2v"]
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_tlwt5")
 player = NodePath("player")
+water = ExtResource("4_aqk2v")
 
 [node name="base" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -468,7 +471,7 @@ tile_map_data = PackedByteArray("AAAAAP7/AAABAAgAAAAAAP3/AAABAAcAAAAAAPz/AAABAAQ
 tile_set = SubResource("TileSet_aqk2v")
 
 [node name="player" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(331, 187)
+position = Vector2(238, 122)
 
 [node name="water" type="Area2D" parent="."]
 
@@ -481,6 +484,8 @@ polygon = PackedVector2Array(1.3160486, 80.29426, 34.723457, 64.37081, 79.26666,
 autostart = true
 
 [node name="item" parent="." instance=ExtResource("4_aqk2v")]
+material = SubResource("CanvasItemMaterial_aqk2v")
+position = Vector2(-331, -122)
 
 [connection signal="body_shape_entered" from="water" to="." method="_on_water_body_shape_entered"]
 [connection signal="body_shape_exited" from="water" to="." method="_on_water_body_shape_exited"]

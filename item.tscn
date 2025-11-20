@@ -1,19 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6ra2ajpy63em"]
+[gd_scene load_steps=4 format=3 uid="uid://c6ra2ajpy63em"]
 
 [ext_resource type="Script" uid="uid://be82bjecrve7r" path="res://item.gd" id="1_tnite"]
+[ext_resource type="Texture2D" uid="uid://382ul7xtmujn" path="res://waterdrop.png" id="2_ttk8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
+radius = 8.0
 
 [node name="item" type="Node2D"]
-self_modulate = Color(0.860016, 0.5770983, 0.63033515, 1)
+top_level = true
+texture_filter = 2
 script = ExtResource("1_tnite")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-modulate = Color(0.65882355, 0.6627451, 0.8784314, 1)
-self_modulate = Color(10.942179, 14.613182, 16.761183, 1)
+modulate = Color(0, 0.4834036, 1, 1)
 shape = SubResource("CircleShape2D_ttk8k")
-debug_color = Color(0.6623111, 0.4474886, 0.6703691, 0.41960785)
+debug_color = Color(0.13211006, 0.5443337, 0.92327577, 0.41960785)
 
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+texture_filter = 1
+texture = ExtResource("2_ttk8k")
+
+[connection signal="pickup" from="." to="." method="_on_pickup"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
