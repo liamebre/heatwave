@@ -5,6 +5,7 @@ var sunproc = 1
 var tempbar
 var healthbar
 var tempdamage = 5
+var numsticks
 
 func _ready():
 	screen_size = get_viewport_rect().size

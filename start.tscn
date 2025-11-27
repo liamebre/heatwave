@@ -97,10 +97,5 @@ custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = SubResource("Theme_oiuna")
 
-[node name="quit" type="Button" parent="buttons"]
-layout_mode = 2
-text = "QUIT"
-
 [connection signal="button_down" from="buttons/start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="buttons/menu" to="." method="_on_menu_button_down"]
-[connection signal="button_down" from="buttons/quit" to="." method="_on_quit_button_down"]
